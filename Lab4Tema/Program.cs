@@ -9,7 +9,8 @@ namespace Lab4Tema
             //Ex1();
             //Ex2();
             //Ex3();
-            Ex5();
+            //Ex5();
+            Ex7();
         }
 
         static void Ex1()
@@ -44,11 +45,17 @@ namespace Lab4Tema
             apelati-o si afisati-i rezultatul.  */
             Console.WriteLine(ReturnSum(ReadNumber()));
         }
+        static void Ex7()
+        {
+            /*Scrieti o functie recursiva care pentru un numar “n” primit ca parametru, va
+        afisa urmatoarea piramida a numerelor: */
+            Pyramid(ReadNumber());
+        }
 
         static int[] ReadVector()
         {
             Console.WriteLine("Introduceti dimensiunea vectorului:");
-            int n = int.Parse(Console.ReadLine());
+            int n = ReadNumber();
 
             int[] vector = new int[n];
 
@@ -81,13 +88,13 @@ namespace Lab4Tema
         {
             Console.WriteLine("Introduceti dimensiunile matricii (n m k):");
             Console.WriteLine("Introduceti dimensiunea matricii n");
-            int n = int.Parse(Console.ReadLine());
+            int n = ReadNumber();
 
             Console.WriteLine("Introduceti dimensiunea matricii m");
-            int m = int.Parse(Console.ReadLine());
+            int m = ReadNumber();
 
             Console.WriteLine("Introduceti dimensiunea matricii k");
-            int k = int.Parse(Console.ReadLine());
+            int k = ReadNumber();
 
             int[,,] matrix = new int[n, m, k];
 
@@ -143,8 +150,8 @@ namespace Lab4Tema
         static int[,] ReadMatriceWithTwoDimensions()
         {
             Console.WriteLine("Enter the dimensions of the first array (n m):");
-            int n = int.Parse(Console.ReadLine());
-            int m = int.Parse(Console.ReadLine());
+            int n = ReadNumber();
+            int m = ReadNumber();
             int[,] array1 = new int[n, m];
 
             Console.WriteLine("Enter the elements of the first array:");
@@ -156,8 +163,8 @@ namespace Lab4Tema
                 }
             }
             Console.WriteLine("Enter the dimensions of the second array (m n):");
-            int m2 = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
+            int m2 = ReadNumber();
+            int n2 = ReadNumber();
             int[,] array2 = new int[m2, n2];
 
             Console.WriteLine("Enter the elements of the second array:");
@@ -213,6 +220,20 @@ namespace Lab4Tema
             else
                 return n + ReturnSum(n - 1);
 
+        }
+        static void Pyramid(int number, int row = 1)
+        {
+            if (number <= 0)
+                return;
+            if (row > number)
+                return;
+
+            for (int i = 0; i < row; i++)
+            {
+                Console.Write(row + " ");
+            }
+            Console.WriteLine();
+            Pyramid(number, row + 1);
         }
     }
 }
